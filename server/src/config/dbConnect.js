@@ -5,10 +5,10 @@ const mongoose = require('mongoose');
 
 const dbConnect = async() =>{
     try {
-        await mongoose.connect('mongodb+srv://me:sxQctnKlHp6KnW3w@rastreadordegastos.5ym0hju.mongodb.net/RastreadorDeGastos?retryWrites=true&w=majority',{
+        await mongoose.connect (process.env.MONGO_URL, {
             useUnifiedTopology: true,
             useNewUrlParser: true,
-        })
+        });
         console.log('DB conected Successfully (: !');
     } catch (error) {
         console.log(`Error ${error.message}`);
@@ -16,4 +16,6 @@ const dbConnect = async() =>{
 }
 
 module.exports = dbConnect;
+
+
 
